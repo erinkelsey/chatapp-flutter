@@ -27,7 +27,7 @@ This implementation uses Firebase Authentication and Database. You will need to 
     - Select iOS as an option
     - Register the app with your iOS bundle ID
     - Download config file
-    - Put config file in the ios/Runner folder (where Info.plist is)
+    - Put config file in the ios/Runner folder (where Info.plist is), in XCode. Do not drag and drop the file into the folder!
 
   - Set up the Android Platform in Firebase project:
 
@@ -59,15 +59,29 @@ This implementation uses Firebase Authentication and Database. You will need to 
 
     - App-level build.gradle:
 
-* Get the the Web API Key from Settings (YOUR_FIREBASE_WEB_API_KEY)
+      apply plugin: 'com.android.application'
+      // Add this line
+      apply plugin: 'com.google.gms.google-services'
+
+      dependencies {
+      // add the Firebase SDK for Google Analytics
+      implementation 'com.google.firebase:firebase-analytics:17.2.2'
+      // add SDKs for any other desired Firebase products
+      // https://firebase.google.com/docs/android/setup#available-libraries
+      }
 
 * Set up the Database:
 
   - Go to Develop -> Database
-  - Add a database
-  - Copy the DB URL (YOUR_FIREBASE_DB_URL)
+  - Create a Cloud Firestore Database
+  - Add a Collection and call it: chats
+  - Add a document to the collection -> you can use Auto-ID
+  - Add a new collection to the document called: messages
+
+  * Add a database
+  * Copy the DB URL (YOUR_FIREBASE_DB_URL)
     - Example: https://my-app-e7a11.firebaseio.com/
-  - Set up the Rules:
+  * Set up the Rules:
     {
     "rules": {
     ".read": "auth != null",
