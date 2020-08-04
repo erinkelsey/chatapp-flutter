@@ -29,6 +29,11 @@ This implementation uses Firebase Authentication and Database. You will need to 
     - Download config file
     - Put config file in the ios/Runner folder (where Info.plist is), in XCode. Do not drag and drop the file into the folder!
 
+  - Set up the Web Platform in Firebase project:
+
+    - Add the JS scripts to the web/index.html file before initializing the service worker
+    - You may have to change the Firebase version to 7.5.0 for all, if you get errors
+
   - Set up the Android Platform in Firebase project:
 
     - Register the app with your Android package name
@@ -77,20 +82,6 @@ This implementation uses Firebase Authentication and Database. You will need to 
   - Add a Collection and call it: chats
   - Add a document to the collection -> you can use Auto-ID
   - Add a new collection to the document called: messages
-
-  * Add a database
-  * Copy the DB URL (YOUR_FIREBASE_DB_URL)
-    - Example: https://my-app-e7a11.firebaseio.com/
-  * Set up the Rules:
-    {
-    "rules": {
-    ".read": "auth != null",
-    ".write": "auth != null",
-    "products": {
-    ".indexOn": ["creatorId"]
-    }
-    }
-    }
 
 * Authentication
   - Go to Develop -> Authentication
