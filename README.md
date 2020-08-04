@@ -132,6 +132,13 @@ This implementation uses Firebase Authentication, Database, and Storage. You wil
 
   - Web:
 
+- Functions
+
+  Run the following:
+
+      $ firebase login
+      $ firebase deploy
+
 ## Run
 
 Run on a device (once it is connected):
