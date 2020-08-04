@@ -18,6 +18,12 @@
 	<string>$(FLUTTER_BUILD_NAME)</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>We need access to let you pick an image.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>We need access to let you pick an image.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>We need access to let you pick an image.</string>
 	<key>CFBundleVersion</key>
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
 	<key>LSRequiresIPhoneOS</key>
