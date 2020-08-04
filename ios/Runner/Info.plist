@@ -11,23 +11,28 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>Chat App</string>
+	<string>ChatApp</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>$(FLUTTER_BUILD_NAME)</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>We need access to let you pick an image.</string>
-	<key>NSCameraUsageDescription</key>
-	<string>We need access to let you pick an image.</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>We need access to let you pick an image.</string>
 	<key>CFBundleVersion</key>
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>We need access to let you pick an image.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>We need access to let you pick an image.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>We need access to let you pick an image.</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+		<string>remote-notification</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

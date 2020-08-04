@@ -1,6 +1,6 @@
 ## About
 
-A simple chat app using Flutter and Dart for iOS, Android and web. The app uses Firebase Authentication and Database, and File Storage for the backend.
+A simple group chat app using Flutter and Dart for iOS, Android and Web. This app uses Firebase Authentication, Database, and File Storage for the backend, also push notifications for Android, iOS, and Web with Firebase Cloud Messaging.
 
 Hosted web example here:
 
@@ -116,8 +116,21 @@ This implementation uses Firebase Authentication, Database, and Storage. You wil
         }
 
 * Authentication
+
   - Go to Develop -> Authentication
   - In Sign-in method tab, and enable Email/Password Provider
+
+* Push Notifications
+
+  - Android/iOS:
+
+    - Follow the directions here: https://pub.dev/packages/firebase_messaging
+
+  - iOS:
+
+    - Open up project in XCode, and make sure that the entitlements file is on Debug/Profile/Release for the Code Signing Entitlements setting in Build Settings for both the Project Runner and Targets Runner
+
+  - Web:
 
 ## Run
 
