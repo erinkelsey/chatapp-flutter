@@ -16,9 +16,9 @@ To run with web, follow the instructions here: https://flutter.dev/docs/get-star
 
 ## Setup
 
-This implementation uses Firebase Authentication and Database. You will need to do set these up, in order for the app to work for you.
+This implementation uses Firebase Authentication, Database, and Storage. You will need to do set these up, in order for the app to work for you:
 
-- Set up a new project in Firebase:
+- Project:
 
   - Make sure to enable Google Analytics
 
@@ -75,11 +75,45 @@ This implementation uses Firebase Authentication and Database. You will need to 
             // https://firebase.google.com/docs/android/setup#available-libraries
           }
 
-* Set up the Database:
+- Database
 
   - Go to Develop -> Database
   - Create a Cloud Firestore Database
   - Add a Collection and call it: chats
+  - Go to Rules tab and set up rules:
+
+    rules_version = '2';
+    service cloud.firestore {
+    match /databases/{database}/documents {
+
+          match /users/{uid}{
+          allow write: if request.auth != null && request.auth.uid == uid;
+          }
+
+          match /users/{uid}{
+            allow read: if request.auth != null;
+          }
+
+          match /chats/{document=**} {
+            allow read, create: if request.auth != null;
+          }
+        }
+
+    }
+
+- Storage
+
+  - Create a default bucket
+  - Go to Rules tab and set up rules:
+
+        rules_version = '2';
+        service firebase.storage {
+          match /b/{bucket}/o {
+            match /{allPaths=**} {
+              allow read, create: if request.auth != null;
+            }
+          }
+        }
 
 * Authentication
   - Go to Develop -> Authentication
