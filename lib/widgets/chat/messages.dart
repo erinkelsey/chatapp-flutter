@@ -1,27 +1,47 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
-class Messages extends StatefulWidget {
-  @override
-  _MessagesState createState() => _MessagesState();
-}
+import './message_bubble.dart';
 
-class _MessagesState extends State<Messages> {
+class Messages extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder(
-        stream: Firestore.instance.collection('chats').snapshots(),
-        builder: (ctx, chatSnapshot) {
-          if (chatSnapshot.connectionState == ConnectionState.waiting) {
-            return Center(child: CircularProgressIndicator());
-          }
-          final chatDocs = chatSnapshot.data.documents;
-          return ListView.builder(
-            itemCount: chatDocs.length,
-            itemBuilder: (ctx, index) => Text(
-              chatDocs[index]['text'],
-            ),
+    return FutureBuilder(
+      future: FirebaseAuth.instance.currentUser(),
+      builder: (ctx, futureSnapshot) {
+        if (futureSnapshot.connectionState == ConnectionState.waiting) {
+          return Center(
+            child: CircularProgressIndicator(),
           );
-        });
+        }
+        return StreamBuilder(
+            stream: Firestore.instance
+                .collection('chats')
+                .orderBy(
+                  'createdAt',
+                  descending: true,
+                )
+                .snapshots(),
+            builder: (ctx, chatSnapshot) {
+              if (chatSnapshot.connectionState == ConnectionState.waiting) {
+                return Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+              final chatDocs = chatSnapshot.data.documents;
+              return ListView.builder(
+                reverse: true,
+                itemCount: chatDocs.length,
+                itemBuilder: (ctx, index) => MessageBubble(
+                  chatDocs[index]['text'],
+                  chatDocs[index]['userId'],
+                  chatDocs[index]['userId'] == futureSnapshot.data.uid,
+                  key: ValueKey(chatDocs[index].documentID),
+                ),
+              );
+            });
+      },
+    );
   }
 }
