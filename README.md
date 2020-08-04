@@ -80,8 +80,6 @@ This implementation uses Firebase Authentication and Database. You will need to 
   - Go to Develop -> Database
   - Create a Cloud Firestore Database
   - Add a Collection and call it: chats
-  - Add a document to the collection -> you can use Auto-ID (MESSAGES_DOCUMENT_ID)
-  - Add a new collection to the document called: messages
 
 * Authentication
   - Go to Develop -> Authentication
@@ -91,11 +89,11 @@ This implementation uses Firebase Authentication and Database. You will need to 
 
 Run on a device (once it is connected):
 
-    $ flutter run --dart-define=MESSAGES_DOCUMENT_ID=[YOUR_MESSAGES_DOCUMENT_ID]
+    $ flutter run
 
 Run on a web browser (if you have installed support for running on web):
 
-    $ flutter run -d chrome --dart-define=MESSAGES_DOCUMENT_ID=[YOUR_MESSAGES_DOCUMENT_ID]
+    $ flutter run -d chrome
 
 ## TODO
 
