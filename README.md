@@ -41,46 +41,46 @@ This implementation uses Firebase Authentication and Database. You will need to 
     - Put config file in the android/app folder
     - Project-level build.gradle:
 
-      buildscript {
-      repositories {
-      // Check that you have the following line (if not, add it):
-      google() // Google's Maven repository
-      }
-      dependencies {
-      ...
-      // Add this line
-      classpath 'com.google.gms:google-services:4.3.3'
-      }
-      }
+          buildscript {
+            repositories {
+              // Check that you have the following line (if not, add it):
+              google() // Google's Maven repository
+            }
+            dependencies {
+              ...
+              // Add this line
+              classpath 'com.google.gms:google-services:4.3.3'
+            }
+          }
 
-      allprojects {
-      ...
-      repositories {
-      // Check that you have the following line (if not, add it):
-      google() // Google's Maven repository
-      ...
-      }
-      }
+          allprojects {
+            ...
+            repositories {
+              // Check that you have the following line (if not, add it):
+              google() // Google's Maven repository
+              ...
+            }
+          }
 
     - App-level build.gradle:
 
-      apply plugin: 'com.android.application'
-      // Add this line
-      apply plugin: 'com.google.gms.google-services'
+          apply plugin: 'com.android.application'
+          // Add this line
+          apply plugin: 'com.google.gms.google-services'
 
-      dependencies {
-      // add the Firebase SDK for Google Analytics
-      implementation 'com.google.firebase:firebase-analytics:17.2.2'
-      // add SDKs for any other desired Firebase products
-      // https://firebase.google.com/docs/android/setup#available-libraries
-      }
+          dependencies {
+            // add the Firebase SDK for Google Analytics
+            implementation 'com.google.firebase:firebase-analytics:17.2.2'
+            // add SDKs for any other desired Firebase products
+            // https://firebase.google.com/docs/android/setup#available-libraries
+          }
 
 * Set up the Database:
 
   - Go to Develop -> Database
   - Create a Cloud Firestore Database
   - Add a Collection and call it: chats
-  - Add a document to the collection -> you can use Auto-ID
+  - Add a document to the collection -> you can use Auto-ID (MESSAGES_DOCUMENT_ID)
   - Add a new collection to the document called: messages
 
 * Authentication
@@ -91,11 +91,11 @@ This implementation uses Firebase Authentication and Database. You will need to 
 
 Run on a device (once it is connected):
 
-    $ flutter run --dart-define=FIREBASE_API_KEY=[YOUR_FIREBASE_WEB_API_KEY] --dart-define=FIREBASE_DB_URL=[YOUR_FIREBASE_DB_URL]
+    $ flutter run --dart-define=MESSAGES_DOCUMENT_ID=[YOUR_MESSAGES_DOCUMENT_ID]
 
 Run on a web browser (if you have installed support for running on web):
 
-    $ flutter run -d chrome --dart-define=FIREBASE_API_KEY=[YOUR_FIREBASE_WEB_API_KEY] --dart-define=FIREBASE_DB_URL=[YOUR_FIREBASE_DB_URL]
+    $ flutter run -d chrome --dart-define=MESSAGES_DOCUMENT_ID=[YOUR_MESSAGES_DOCUMENT_ID]
 
 ## TODO
 
