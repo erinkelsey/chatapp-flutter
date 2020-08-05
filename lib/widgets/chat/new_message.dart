@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+/// Widget for the new message functionality, both the
+/// UI and sending the new message to Firebase
 class NewMessage extends StatefulWidget {
   @override
   _NewMessageState createState() => _NewMessageState();

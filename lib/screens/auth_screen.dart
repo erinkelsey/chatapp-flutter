@@ -8,15 +8,23 @@ import 'package:firebase_storage/firebase_storage.dart';
 
 import '../widgets/auth/auth_form.dart';
 
+/// Authentication screen for the app.
+///
+/// Can switch between signup and login mode.
 class AuthScreen extends StatefulWidget {
   @override
   _AuthScreenState createState() => _AuthScreenState();
 }
 
 class _AuthScreenState extends State<AuthScreen> {
+  /// [FirebaseAuth.instance] containing the authentication
+  /// info for this user.
   final _auth = FirebaseAuth.instance;
+
+  /// Boolean for tracking if info is currently loading.
   var _isLoading = false;
 
+  /// Called when auth form is to be submitted.
   void _submitAuthForm(
     String email,
     String userName,
@@ -67,6 +75,7 @@ class _AuthScreenState extends State<AuthScreen> {
         message = err.message;
       }
 
+      // show error as snackbar
       Scaffold.of(ctx).showSnackBar(
         SnackBar(
           content: Text(message),

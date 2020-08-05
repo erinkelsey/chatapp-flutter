@@ -4,9 +4,11 @@ import 'package:flutter/material.dart';
 
 import '../../pickers/user_image_picker.dart';
 
+/// Authentication form for logging in and signing up.
 class AuthForm extends StatefulWidget {
   AuthForm(this.submitFn, this.isLoading);
 
+  /// Callback function for authenticating user on form submit.
   final void Function(
     String email,
     String userName,
@@ -16,6 +18,8 @@ class AuthForm extends StatefulWidget {
     BuildContext ctx,
   ) submitFn;
 
+  /// Boolean for tracking if there is info that is
+  /// currently loading.
   final bool isLoading;
 
   @override

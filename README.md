@@ -1,18 +1,17 @@
 ## About
 
-A simple group chat app using Flutter and Dart for iOS, Android and Web. This app uses Firebase Authentication, Database, and File Storage for the backend, also push notifications for Android, iOS, and Web with Firebase Cloud Messaging.
-
-Hosted web example here:
+A simple group chat app using Flutter and Dart for iOS and Android. This app uses Firebase Authentication, Database, and File Storage for the backend, also push notifications with Firebase Cloud Messaging.
 
 ## Functionality
 
--
+- Basic authentication -> signup, login, logout
+- Signup with image
+- Send chat messages to all other users
+- Receive push notifications when a user sends a chat
 
 ## Install and Setup
 
 You will need Flutter installed, along with a number of dependencies for building and running iOS and Android apps on simulators. You can find the install instructions here: https://flutter.dev/docs/get-started/install
-
-To run with web, follow the instructions here: https://flutter.dev/docs/get-started/web
 
 ## Setup
 
@@ -28,11 +27,6 @@ This implementation uses Firebase Authentication, Database, and Storage. You wil
     - Register the app with your iOS bundle ID
     - Download config file
     - Put config file in the ios/Runner folder (where Info.plist is), in XCode. Do not drag and drop the file into the folder!
-
-  - Set up the Web Platform in Firebase project:
-
-    - Add the JS scripts to the web/index.html file before initializing the service worker
-    - You may have to change the Firebase version to 7.5.0 for all, if you get errors
 
   - Set up the Android Platform in Firebase project:
 
@@ -129,8 +123,6 @@ This implementation uses Firebase Authentication, Database, and Storage. You wil
 
     - Open up project in XCode, and make sure that the entitlements file is on Debug/Profile/Release for the Code Signing Entitlements setting in Build Settings for both the Project Runner and Targets Runner
 
-  - Web:
-
 - Functions
 
   Run the following:
@@ -143,10 +135,6 @@ This implementation uses Firebase Authentication, Database, and Storage. You wil
 Run on a device (once it is connected):
 
     $ flutter run
-
-Run on a web browser (if you have installed support for running on web):
-
-    $ flutter run -d chrome
 
 ## TODO
 

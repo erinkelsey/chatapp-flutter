@@ -5,12 +5,15 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import '../widgets/chat/messages.dart';
 import '../widgets/chat/new_message.dart';
 
+/// Widget for building the chat screen.
 class ChatScreen extends StatefulWidget {
   @override
   _ChatScreenState createState() => _ChatScreenState();
 }
 
 class _ChatScreenState extends State<ChatScreen> {
+  /// Initialize FCM for receiving push notifications.
+  /// And subscribe to 'chats' topic.
   @override
   void initState() {
     super.initState();

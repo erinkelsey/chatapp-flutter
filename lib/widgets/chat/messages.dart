@@ -4,6 +4,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 import './message_bubble.dart';
 
+/// Widget for building the list of messages to display
+/// on the chat screen.
 class Messages extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

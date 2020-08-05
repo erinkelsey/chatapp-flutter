@@ -9,6 +9,11 @@ void main() {
   runApp(MyApp());
 }
 
+/// Main widget for the app.
+///
+/// Contains the app theme, and displays either the [AuthScreen],
+/// if user is not authenticated, or the [ChatScreen], if they are,
+/// or the [SplashScreen], if checking if the user is authenticated.
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

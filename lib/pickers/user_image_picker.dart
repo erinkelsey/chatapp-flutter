@@ -3,9 +3,13 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
+/// Widget for picking an image with native device camera.
+///
+/// [imagePickFn] is called when an image is selected.
 class UserImagePicker extends StatefulWidget {
   UserImagePicker(this.imagePickFn);
 
+  /// Function that is called when an image [pickedImage] is selected.
   final Function(File pickedImage) imagePickFn;
 
   @override

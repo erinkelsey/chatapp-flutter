@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
 
+/// Widget for building an individual chat message bubble.
+///
+/// Arguments must include the [message] to display, the [userName]
+/// of user who sent the message, the [userImage] of the user who
+/// sent the message, whether the message is from this user as
+/// boolean [isMe], and the unique [key] for the message.
 class MessageBubble extends StatelessWidget {
   MessageBubble(
     this.message,
